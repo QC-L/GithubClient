@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 @implementation AppDelegate
@@ -17,6 +18,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    
+    NSDictionary *dictionary = @{@"client_id": @"f2c0abf76bbb876600a8",
+        @"client_secret": @"c8b566ff62fa44ca5b18131b85d3997599dba8a4",
+                          @"code": [url.resourceSpecifier componentsSeparatedByString:@"="][1]};
+    self.manager = [AFHTTPSessionManager manager];
+    
+    [_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [_manager POST:@"https://github.com/login/oauth/access_token" parameters:dictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
+    
+    
     return YES;
 }
 
