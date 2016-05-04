@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-const NSString *kClientId = @"f2c0abf76bbb876600a8";
-const NSString *kScope = @"user,public_repo";
-const NSString *kClientSecret = @"c8b566ff62fa44ca5b18131b85d3997599dba8a4";
+static const NSString *kClientId = @"f2c0abf76bbb876600a8";
+static const NSString *kScope = @"user,public_repo";
+static const NSString *kClientSecret = @"c8b566ff62fa44ca5b18131b85d3997599dba8a4";
 
 @interface GitHubOAuthHelper : NSObject
 

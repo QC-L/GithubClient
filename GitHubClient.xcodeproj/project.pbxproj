@@ -67,6 +67,7 @@
 		7C9B5F531CD8FA2600916B7B /* QCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCRequest.m; sourceTree = "<group>"; };
 		7C9B5F551CD9129800916B7B /* GitHubOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubOAuthHelper.h; sourceTree = "<group>"; };
 		7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubOAuthHelper.m; sourceTree = "<group>"; };
+		7C9B5F581CD994DF00916B7B /* QCNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCNetworking.h; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +184,7 @@
 				7C9B5F501CD8EE8E00916B7B /* QCNetworkManager.m */,
 				7C9B5F521CD8FA2600916B7B /* QCRequest.h */,
 				7C9B5F531CD8FA2600916B7B /* QCRequest.m */,
+				7C9B5F581CD994DF00916B7B /* QCNetworking.h */,
 			);
 			name = HttpClient;
 			sourceTree = "<group>";

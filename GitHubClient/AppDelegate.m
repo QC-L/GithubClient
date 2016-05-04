@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "QCNetworkManager.h"
+#import "QCNetworking.h"
 #import "UserViewController.h"
-#import "QCRequest.h"
 #import "GitHubOAuthHelper.h"
+
+
+
 
 @interface AppDelegate () <QCNetworkResult>
 @property (nonatomic, strong) QCNetworkManager *manager;

@@ -7,10 +7,11 @@
 //
 
 #import "UserViewController.h"
-#import <AFNetworking/AFNetworking.h>
+#import "QCNetworkManager.h"
+#import "QCRequest.h"
 
-@interface UserViewController ()
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@interface UserViewController () <QCNetworkResult>
+@property (nonatomic, strong) QCNetworkManager *manager;
 @end
 
 @implementation UserViewController
@@ -20,15 +21,24 @@
     // Do any additional setup after loading the view from its nib.
     
     NSString *url = [NSString stringWithFormat:@"https://api.github.com/user?access_token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]];
-    NSLog(@"%@", url);
-    self.manager = [AFHTTPSessionManager manager];
-    [_manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+    
+    _manager = [QCNetworkManager defaultManager];
+    _manager.delegate = self;
+    QCRequest *request = [[QCRequest alloc] init];
+    request.urlString = url;
+    [_manager getRequest:request];
+
 }
+
+- (void)requestedSuccess:(id)responseObject {
+    NSLog(@"%@", responseObject);
+}
+
+- (void)requestedError:(NSError *)error {
+    NSLog(@"%@", error);
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
