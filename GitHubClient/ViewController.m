@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GitHubOAuthHelper.h"
 
 @interface ViewController ()
 
@@ -14,11 +15,7 @@
 
 @implementation ViewController
 - (IBAction)openApplicationOAuth2:(id)sender {
-    
-    NSURL *url = [NSURL URLWithString:@"https://github.com/login/oauth/authorize?client_id=f2c0abf76bbb876600a8&scope=user,public_repo"];
-    
-    [[UIApplication sharedApplication] openURL:url];
-    
+    [GitHubOAuthHelper gitHubOAuthOpenUrl];
 }
 
 - (void)viewDidLoad {

@@ -7,10 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import <AFNetworking/AFNetworking.h>
+#import "QCNetworkManager.h"
+#import "UserViewController.h"
+#import "QCRequest.h"
+#import "GitHubOAuthHelper.h"
 
-@interface AppDelegate ()
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@interface AppDelegate () <QCNetworkResult>
+@property (nonatomic, strong) QCNetworkManager *manager;
 @end
 
 @implementation AppDelegate
@@ -23,23 +26,48 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
     
-    NSDictionary *dictionary = @{@"client_id": @"f2c0abf76bbb876600a8",
-        @"client_secret": @"c8b566ff62fa44ca5b18131b85d3997599dba8a4",
+    NSDictionary *dictionary = @{@"client_id": kClientId,
+        @"client_secret": kClientSecret,
                           @"code": [url.resourceSpecifier componentsSeparatedByString:@"="][1]};
-    self.manager = [AFHTTPSessionManager manager];
+    NSDictionary *allHttpHeaderFields = @{@"Accept": @"application/json"};
     
-    [_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    _manager = [QCNetworkManager defaultManager];
+    _manager.delegate = self;
     
-    [_manager POST:@"https://github.com/login/oauth/access_token" parameters:dictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+    QCRequest *request = [[QCRequest alloc] init];
+    request.urlString = @"https://github.com/login/oauth/access_token";
+    request.parameters = dictionary;
+    request.allHttpHeaderFields = allHttpHeaderFields;
+    
+    [_manager postRequest:request];
+    
+    
     
     
     
     return YES;
+}
+
+- (void)requestedSuccess:(id)responseObject {
+
+    NSString *token = responseObject[@"access_token"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:token forKey:@"access_token"];
+    
+    [defaults synchronize];
+
+    
+    UserViewController *vc = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:nil];
+    UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+    [nav pushViewController:vc animated:YES];
+    
+    
+}
+
+- (void)requestedError:(NSError *)error {
+    NSLog(@"%@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
