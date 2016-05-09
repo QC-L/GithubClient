@@ -20,13 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSString *url = [NSString stringWithFormat:@"https://api.github.com/user?access_token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]];
-    
-    _manager = [QCNetworkManager defaultManager];
-    _manager.delegate = self;
-    QCRequest *request = [[QCRequest alloc] init];
-    request.urlString = url;
-    [_manager getRequest:request];
 
 }
 
@@ -38,7 +31,19 @@
     NSLog(@"%@", error);
 }
 
+- (IBAction)reloadNetwork:(id)sender {
+    
+    NSString *url = [NSString stringWithFormat:@"https://api.github.com/user?access_token=%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]];
+    _manager = [QCNetworkManager defaultManager];
+    _manager.delegate = self;
+    QCRequest *request = [[QCRequest alloc] init];
+    request.urlString = url;
+    [_manager getRequest:request];
+}
 
+- (IBAction)clearCache:(id)sender {
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

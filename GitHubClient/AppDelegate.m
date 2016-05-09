@@ -28,11 +28,12 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
     
-    NSDictionary *dictionary = @{@"client_id": kClientId,
-        @"client_secret": kClientSecret,
-                          @"code": [url.resourceSpecifier componentsSeparatedByString:@"="][1]};
+    NSDictionary *dictionary = @{
+        @"client_id": kClientId,
+    @"client_secret": kClientSecret,
+             @"code": [url.resourceSpecifier componentsSeparatedByString:@"="][1]
+    };
     NSDictionary *allHttpHeaderFields = @{@"Accept": @"application/json"};
-    
     _manager = [QCNetworkManager defaultManager];
     _manager.delegate = self;
     
@@ -40,12 +41,7 @@
     request.urlString = @"https://github.com/login/oauth/access_token";
     request.parameters = dictionary;
     request.allHttpHeaderFields = allHttpHeaderFields;
-    
     [_manager postRequest:request];
-    
-    
-    
-    
     
     return YES;
 }

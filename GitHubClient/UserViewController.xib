@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController">
@@ -13,7 +14,37 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irk-QC-phI">
+                    <rect key="frame" x="276.5" y="285" width="47" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Dp2-l5-IU4"/>
+                        <constraint firstAttribute="width" constant="47" id="jhk-NS-O9T"/>
+                    </constraints>
+                    <state key="normal" title="Reload"/>
+                    <connections>
+                        <action selector="reloadNetwork:" destination="-1" eventType="touchUpInside" id="swY-NS-yEW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gad-df-Jba">
+                    <rect key="frame" x="277" y="338" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="DFy-Vv-qGL"/>
+                        <constraint firstAttribute="width" constant="46" id="tpe-Ft-RAk"/>
+                    </constraints>
+                    <state key="normal" title="Clear"/>
+                    <connections>
+                        <action selector="clearCache:" destination="-1" eventType="touchUpInside" id="qnq-Ng-20z"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="irk-QC-phI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7uk-3S-qcl"/>
+                <constraint firstItem="Gad-df-Jba" firstAttribute="top" secondItem="irk-QC-phI" secondAttribute="bottom" constant="23" id="8ik-me-idQ"/>
+                <constraint firstItem="irk-QC-phI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YUm-ym-3tX"/>
+                <constraint firstItem="Gad-df-Jba" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qPz-hZ-yFG"/>
+            </constraints>
         </view>
     </objects>
 </document>

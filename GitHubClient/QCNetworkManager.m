@@ -9,9 +9,11 @@
 #import "QCNetworkManager.h"
 #import <AFNetworking/AFNetworking.h>
 #import "QCRequest.h"
+#import "KeyedArchiverManager.h"
+#import "NSUserDefaults+Etag.h"
 
 @interface QCNetworkManager ()
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation QCNetworkManager
@@ -27,13 +29,44 @@
 
 - (void)getRequest:(QCRequest *)request {
     
-    _manager = [self getManager];
+    AFHTTPSessionManager *manager = [self getManager];
     
-    for (id key in request.allHttpHeaderFields.allKeys) {
-        [_manager.requestSerializer setValue:request.allHttpHeaderFields[key] forHTTPHeaderField:key];
+    if ([[AFNetworkReachabilityManager manager] isReachable]) {
+        id result = [[KeyedArchiverManager shareManager] keyedUnarchiverPahtWith:request.urlString];
+        if (result) {
+            [self.delegate requestedSuccess:result];
+        } else {
+            [self.delegate requestedError:[NSError errorWithDomain:@"is no cache" code:400 userInfo:nil]];
+        }
+        return;
     }
     
-    [_manager GET:request.urlString parameters:request.parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    for (id key in request.allHttpHeaderFields.allKeys) {
+        [manager.requestSerializer setValue:request.allHttpHeaderFields[key] forHTTPHeaderField:key];
+    }
+    
+    NSString *etag = [[NSUserDefaults standardUserDefaults] getEtagCacheWithUrl:request.urlString];
+    if (etag.length > 0) {
+        [manager.requestSerializer setValue:etag forHTTPHeaderField:@"If-None-Match"];
+        manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    }
+    
+    [manager GET:request.urlString parameters:request.parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        
+        if (response.statusCode == 304) {
+            id result = [[KeyedArchiverManager shareManager] keyedUnarchiverPahtWith:request.urlString];
+            // 取出缓存并返回
+            [self.delegate requestedSuccess:result];
+            return;
+        }
+        // 设置Etag
+        NSString *eTag = response.allHeaderFields[@"Etag"];
+
+        [[NSUserDefaults standardUserDefaults] setEtagCacheWithURL:request.urlString etag:eTag];
+        [[KeyedArchiverManager shareManager] keyedArchiverPathWithUrl:request.urlString withResponse:responseObject];
+        
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestedSuccess:)] && responseObject) {
             [self.delegate requestedSuccess:responseObject];
         }
@@ -46,13 +79,35 @@
 }
 
 - (void)postRequest:(QCRequest *)request {
-    _manager = [self getManager];
+    AFHTTPSessionManager *manager = [self getManager];
     
     for (id key in request.allHttpHeaderFields.allKeys) {
-        [_manager.requestSerializer setValue:request.allHttpHeaderFields[key] forHTTPHeaderField:key];
+        [manager.requestSerializer setValue:request.allHttpHeaderFields[key] forHTTPHeaderField:key];
     }
     
-    [_manager POST:request.urlString parameters:request.parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSString *etag = [[NSUserDefaults standardUserDefaults] getEtagCacheWithUrl:request.urlString];
+    if (etag.length > 0) {
+        [manager.requestSerializer setValue:etag forHTTPHeaderField:@"If-None-Match"];
+        manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    }
+    
+    [manager POST:request.urlString parameters:request.parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        
+        if (response.statusCode == 304) {
+            id result = [[KeyedArchiverManager shareManager] keyedUnarchiverPahtWith:request.urlString];
+            // 取出缓存并返回
+            [self.delegate requestedSuccess:result];
+            return;
+        }
+        
+        // 设置Etag
+        NSString *eTag = response.allHeaderFields[@"Etag"];
+        
+        [[NSUserDefaults standardUserDefaults] setEtagCacheWithURL:request.urlString etag:eTag];
+        [[KeyedArchiverManager shareManager] keyedArchiverPathWithUrl:request.urlString withResponse:responseObject];
+        
+        
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestedSuccess:)] && responseObject) {
             [self.delegate requestedSuccess:responseObject];
         }
@@ -68,6 +123,10 @@
 
 - (AFHTTPSessionManager *)getManager {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 让网络请求管理类支持304
+    NSMutableIndexSet *set = [manager.responseSerializer.acceptableStatusCodes mutableCopy];
+    [set addIndex:304];
+    manager.responseSerializer.acceptableStatusCodes = set;
     return manager;
 }
 

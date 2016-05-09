@@ -18,9 +18,13 @@
 		40255AF11CD5011400BC0F7C /* GitHubClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40255AF01CD5011400BC0F7C /* GitHubClientUITests.m */; };
 		7C0D51761CD8AC130097141F /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D51741CD8AC130097141F /* UserViewController.m */; };
 		7C0D51771CD8AC130097141F /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0D51751CD8AC130097141F /* UserViewController.xib */; };
+		7C4EC4871CDB445900F4EB14 /* NSUserDefaults+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EC4861CDB445900F4EB14 /* NSUserDefaults+Token.m */; };
+		7C4EC48A1CDB446A00F4EB14 /* NSUserDefaults+Etag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EC4891CDB446A00F4EB14 /* NSUserDefaults+Etag.m */; };
+		7C9883F91CDCCAB800E050B6 /* KeyedArchiverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9883F81CDCCAB800E050B6 /* KeyedArchiverManager.m */; };
 		7C9B5F511CD8EE8E00916B7B /* QCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5F501CD8EE8E00916B7B /* QCNetworkManager.m */; };
 		7C9B5F541CD8FA2600916B7B /* QCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5F531CD8FA2600916B7B /* QCRequest.m */; };
 		7C9B5F571CD9129800916B7B /* GitHubOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */; };
+		7C9EB13C1CDC843000638C8B /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EB13B1CDC843000638C8B /* NSString+MD5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,12 @@
 		7C0D51731CD8AC130097141F /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		7C0D51741CD8AC130097141F /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		7C0D51751CD8AC130097141F /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		7C4EC4851CDB445900F4EB14 /* NSUserDefaults+Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Token.h"; sourceTree = "<group>"; };
+		7C4EC4861CDB445900F4EB14 /* NSUserDefaults+Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Token.m"; sourceTree = "<group>"; };
+		7C4EC4881CDB446A00F4EB14 /* NSUserDefaults+Etag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Etag.h"; sourceTree = "<group>"; };
+		7C4EC4891CDB446A00F4EB14 /* NSUserDefaults+Etag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Etag.m"; sourceTree = "<group>"; };
+		7C9883F71CDCCAB800E050B6 /* KeyedArchiverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyedArchiverManager.h; sourceTree = "<group>"; };
+		7C9883F81CDCCAB800E050B6 /* KeyedArchiverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyedArchiverManager.m; sourceTree = "<group>"; };
 		7C9B5F4F1CD8EE8E00916B7B /* QCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCNetworkManager.h; sourceTree = "<group>"; };
 		7C9B5F501CD8EE8E00916B7B /* QCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCNetworkManager.m; sourceTree = "<group>"; };
 		7C9B5F521CD8FA2600916B7B /* QCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCRequest.h; sourceTree = "<group>"; };
@@ -68,6 +78,8 @@
 		7C9B5F551CD9129800916B7B /* GitHubOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubOAuthHelper.h; sourceTree = "<group>"; };
 		7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubOAuthHelper.m; sourceTree = "<group>"; };
 		7C9B5F581CD994DF00916B7B /* QCNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCNetworking.h; sourceTree = "<group>"; };
+		7C9EB13A1CDC843000638C8B /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		7C9EB13B1CDC843000638C8B /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,19 +144,17 @@
 		40255ACA1CD5011400BC0F7C /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
+				7C9883F61CDCCA9900E050B6 /* KeyedArchiver */,
+				7C9883F51CDCC9A200E050B6 /* Controller */,
+				7C4EC4841CDB440900F4EB14 /* Category */,
 				40255AFE1CD5045D00BC0F7C /* HttpClient */,
 				40255ACE1CD5011400BC0F7C /* AppDelegate.h */,
 				40255ACF1CD5011400BC0F7C /* AppDelegate.m */,
-				40255AD11CD5011400BC0F7C /* ViewController.h */,
-				40255AD21CD5011400BC0F7C /* ViewController.m */,
 				40255AD41CD5011400BC0F7C /* Main.storyboard */,
 				40255AD71CD5011400BC0F7C /* Assets.xcassets */,
 				40255AD91CD5011400BC0F7C /* LaunchScreen.storyboard */,
 				40255ADC1CD5011400BC0F7C /* Info.plist */,
 				40255ACB1CD5011400BC0F7C /* Supporting Files */,
-				7C0D51731CD8AC130097141F /* UserViewController.h */,
-				7C0D51741CD8AC130097141F /* UserViewController.m */,
-				7C0D51751CD8AC130097141F /* UserViewController.xib */,
 				7C9B5F551CD9129800916B7B /* GitHubOAuthHelper.h */,
 				7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */,
 			);
@@ -195,6 +205,40 @@
 				5324FCC9FB9398E7F258D85C /* Pods_GitHubClient.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C4EC4841CDB440900F4EB14 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7C4EC4851CDB445900F4EB14 /* NSUserDefaults+Token.h */,
+				7C4EC4861CDB445900F4EB14 /* NSUserDefaults+Token.m */,
+				7C4EC4881CDB446A00F4EB14 /* NSUserDefaults+Etag.h */,
+				7C4EC4891CDB446A00F4EB14 /* NSUserDefaults+Etag.m */,
+				7C9EB13A1CDC843000638C8B /* NSString+MD5.h */,
+				7C9EB13B1CDC843000638C8B /* NSString+MD5.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		7C9883F51CDCC9A200E050B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				40255AD11CD5011400BC0F7C /* ViewController.h */,
+				40255AD21CD5011400BC0F7C /* ViewController.m */,
+				7C0D51731CD8AC130097141F /* UserViewController.h */,
+				7C0D51741CD8AC130097141F /* UserViewController.m */,
+				7C0D51751CD8AC130097141F /* UserViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7C9883F61CDCCA9900E050B6 /* KeyedArchiver */ = {
+			isa = PBXGroup;
+			children = (
+				7C9883F71CDCCAB800E050B6 /* KeyedArchiverManager.h */,
+				7C9883F81CDCCAB800E050B6 /* KeyedArchiverManager.m */,
+			);
+			name = KeyedArchiver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,11 +424,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9B5F511CD8EE8E00916B7B /* QCNetworkManager.m in Sources */,
+				7C4EC48A1CDB446A00F4EB14 /* NSUserDefaults+Etag.m in Sources */,
+				7C9EB13C1CDC843000638C8B /* NSString+MD5.m in Sources */,
 				7C9B5F541CD8FA2600916B7B /* QCRequest.m in Sources */,
 				40255AD31CD5011400BC0F7C /* ViewController.m in Sources */,
 				7C9B5F571CD9129800916B7B /* GitHubOAuthHelper.m in Sources */,
 				7C0D51761CD8AC130097141F /* UserViewController.m in Sources */,
+				7C4EC4871CDB445900F4EB14 /* NSUserDefaults+Token.m in Sources */,
 				40255AD01CD5011400BC0F7C /* AppDelegate.m in Sources */,
+				7C9883F91CDCCAB800E050B6 /* KeyedArchiverManager.m in Sources */,
 				40255ACD1CD5011400BC0F7C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
