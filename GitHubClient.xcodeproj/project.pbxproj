@@ -25,6 +25,7 @@
 		7C9B5F541CD8FA2600916B7B /* QCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5F531CD8FA2600916B7B /* QCRequest.m */; };
 		7C9B5F571CD9129800916B7B /* GitHubOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */; };
 		7C9EB13C1CDC843000638C8B /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EB13B1CDC843000638C8B /* NSString+MD5.m */; };
+		7CA294861CE0678900E47A47 /* EtagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA294851CE0678900E47A47 /* EtagManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		7C9B5F581CD994DF00916B7B /* QCNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCNetworking.h; sourceTree = "<group>"; };
 		7C9EB13A1CDC843000638C8B /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		7C9EB13B1CDC843000638C8B /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		7CA294841CE0678900E47A47 /* EtagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtagManager.h; sourceTree = "<group>"; };
+		7CA294851CE0678900E47A47 /* EtagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtagManager.m; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +147,7 @@
 		40255ACA1CD5011400BC0F7C /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
+				7CA294831CE0677100E47A47 /* Etag */,
 				7C9883F61CDCCA9900E050B6 /* KeyedArchiver */,
 				7C9883F51CDCC9A200E050B6 /* Controller */,
 				7C4EC4841CDB440900F4EB14 /* Category */,
@@ -239,6 +243,15 @@
 				7C9883F81CDCCAB800E050B6 /* KeyedArchiverManager.m */,
 			);
 			name = KeyedArchiver;
+			sourceTree = "<group>";
+		};
+		7CA294831CE0677100E47A47 /* Etag */ = {
+			isa = PBXGroup;
+			children = (
+				7CA294841CE0678900E47A47 /* EtagManager.h */,
+				7CA294851CE0678900E47A47 /* EtagManager.m */,
+			);
+			name = Etag;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +440,7 @@
 				7C4EC48A1CDB446A00F4EB14 /* NSUserDefaults+Etag.m in Sources */,
 				7C9EB13C1CDC843000638C8B /* NSString+MD5.m in Sources */,
 				7C9B5F541CD8FA2600916B7B /* QCRequest.m in Sources */,
+				7CA294861CE0678900E47A47 /* EtagManager.m in Sources */,
 				40255AD31CD5011400BC0F7C /* ViewController.m in Sources */,
 				7C9B5F571CD9129800916B7B /* GitHubOAuthHelper.m in Sources */,
 				7C0D51761CD8AC130097141F /* UserViewController.m in Sources */,

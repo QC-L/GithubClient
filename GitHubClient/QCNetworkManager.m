@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "QCRequest.h"
 #import "KeyedArchiverManager.h"
-#import "NSUserDefaults+Etag.h"
+#import "EtagManager.h"
 
 @interface QCNetworkManager ()
 
@@ -32,7 +32,7 @@
     AFHTTPSessionManager *manager = [self getManager];
     
     if ([[AFNetworkReachabilityManager manager] isReachable]) {
-        id result = [[KeyedArchiverManager shareManager] keyedUnarchiverPahtWith:request.urlString];
+        id result = [KeyedArchiverManager keyedUnarchiverPahtWith:request.urlString];
         if (result) {
             [self.delegate requestedSuccess:result];
         } else {
@@ -45,7 +45,7 @@
         [manager.requestSerializer setValue:request.allHttpHeaderFields[key] forHTTPHeaderField:key];
     }
     
-    NSString *etag = [[NSUserDefaults standardUserDefaults] getEtagCacheWithUrl:request.urlString];
+    NSString *etag = [EtagManager getEtagCacheWithUrl:request.urlString];
     if (etag.length > 0) {
         [manager.requestSerializer setValue:etag forHTTPHeaderField:@"If-None-Match"];
         manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
@@ -56,16 +56,19 @@
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         
         if (response.statusCode == 304) {
-            id result = [[KeyedArchiverManager shareManager] keyedUnarchiverPahtWith:request.urlString];
-            // 取出缓存并返回
-            [self.delegate requestedSuccess:result];
+            id result = [KeyedArchiverManager keyedUnarchiverPahtWith:request.urlString];
+            if (result) {
+                [self.delegate requestedSuccess:result];
+            } else {
+                [self.delegate requestedError:[NSError errorWithDomain:@"error" code:400 userInfo:nil]];
+            }
             return;
         }
         // 设置Etag
         NSString *eTag = response.allHeaderFields[@"Etag"];
 
-        [[NSUserDefaults standardUserDefaults] setEtagCacheWithURL:request.urlString etag:eTag];
-        [[KeyedArchiverManager shareManager] keyedArchiverPathWithUrl:request.urlString withResponse:responseObject];
+        [EtagManager setEtagCacheWithURL:request.urlString etag:eTag];
+        [KeyedArchiverManager keyedArchiverPathWithUrl:request.urlString withResponse:responseObject];
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestedSuccess:)] && responseObject) {
             [self.delegate requestedSuccess:responseObject];
@@ -81,11 +84,21 @@
 - (void)postRequest:(QCRequest *)request {
     AFHTTPSessionManager *manager = [self getManager];
     
+    if ([[AFNetworkReachabilityManager manager] isReachable]) {
+        id result = [KeyedArchiverManager keyedUnarchiverPahtWith:request.urlString];
+        if (result) {
+            [self.delegate requestedSuccess:result];
+        } else {
+            [self.delegate requestedError:[NSError errorWithDomain:@"is no cache" code:400 userInfo:nil]];
+        }
+        return;
+    }
+    
     for (id key in request.allHttpHeaderFields.allKeys) {
         [manager.requestSerializer setValue:request.allHttpHeaderFields[key] forHTTPHeaderField:key];
     }
     
-    NSString *etag = [[NSUserDefaults standardUserDefaults] getEtagCacheWithUrl:request.urlString];
+    NSString *etag = [EtagManager getEtagCacheWithUrl:request.urlString];
     if (etag.length > 0) {
         [manager.requestSerializer setValue:etag forHTTPHeaderField:@"If-None-Match"];
         manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
@@ -95,8 +108,8 @@
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         
         if (response.statusCode == 304) {
-            id result = [[KeyedArchiverManager shareManager] keyedUnarchiverPahtWith:request.urlString];
-            // 取出缓存并返回
+            id result = [KeyedArchiverManager  keyedUnarchiverPahtWith:request.urlString];
+
             [self.delegate requestedSuccess:result];
             return;
         }
@@ -104,8 +117,8 @@
         // 设置Etag
         NSString *eTag = response.allHeaderFields[@"Etag"];
         
-        [[NSUserDefaults standardUserDefaults] setEtagCacheWithURL:request.urlString etag:eTag];
-        [[KeyedArchiverManager shareManager] keyedArchiverPathWithUrl:request.urlString withResponse:responseObject];
+        [EtagManager setEtagCacheWithURL:request.urlString etag:eTag];
+        [KeyedArchiverManager keyedArchiverPathWithUrl:request.urlString withResponse:responseObject];
         
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestedSuccess:)] && responseObject) {

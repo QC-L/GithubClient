@@ -15,16 +15,7 @@ const NSString *keyedArchiver = @"/keyedCache";
 
 @implementation KeyedArchiverManager
 
-+ (KeyedArchiverManager *)shareManager {
-    static KeyedArchiverManager *manager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [[KeyedArchiverManager alloc] init];
-    });
-    return manager;
-}
-
-- (NSString *)getKeyedArchiverPathWith:(NSString *)url {
++ (NSString *)getKeyedArchiverPathWith:(NSString *)url {
     NSString *urlString = [NSString stringWithFormat:@"%@%@", kDocumentDirectory, keyedArchiver];
     [[NSFileManager defaultManager] createDirectoryAtPath:urlString withIntermediateDirectories:NO attributes:nil error:nil];
     urlString = [urlString stringByAppendingPathComponent:[url stringWithMD5]];
@@ -32,12 +23,12 @@ const NSString *keyedArchiver = @"/keyedCache";
     return urlString;
 }
 
-- (BOOL)keyedArchiverPathWithUrl:(NSString *)url
++ (BOOL)keyedArchiverPathWithUrl:(NSString *)url
                              withResponse:(id)response {
     return [NSKeyedArchiver archiveRootObject:response toFile:[self getKeyedArchiverPathWith:url]];
 }
 
-- (id)keyedUnarchiverPahtWith:(NSString *)url {
++ (id)keyedUnarchiverPahtWith:(NSString *)url {
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[self getKeyedArchiverPathWith:url]];
 }
 

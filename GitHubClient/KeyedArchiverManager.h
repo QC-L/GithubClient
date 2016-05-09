@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface KeyedArchiverManager : NSObject
-+ (KeyedArchiverManager *)shareManager;
 
-- (BOOL)keyedArchiverPathWithUrl:(NSString *)url
++ (BOOL)keyedArchiverPathWithUrl:(NSString *)url
                     withResponse:(id)response;
-- (id)keyedUnarchiverPahtWith:(NSString *)url;
++ (id)keyedUnarchiverPahtWith:(NSString *)url;
 
 @end
