@@ -26,6 +26,16 @@
 		7C9B5F571CD9129800916B7B /* GitHubOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */; };
 		7C9EB13C1CDC843000638C8B /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EB13B1CDC843000638C8B /* NSString+MD5.m */; };
 		7CA294861CE0678900E47A47 /* EtagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA294851CE0678900E47A47 /* EtagManager.m */; };
+		7CA2948A1CE0837D00E47A47 /* RepositoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA294881CE0837D00E47A47 /* RepositoriesViewController.m */; };
+		7CA2948B1CE0837D00E47A47 /* RepositoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CA294891CE0837D00E47A47 /* RepositoriesViewController.xib */; };
+		7CA294911CE08A8F00E47A47 /* RepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2948F1CE08A8F00E47A47 /* RepoTableViewCell.m */; };
+		7CA294921CE08A8F00E47A47 /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CA294901CE08A8F00E47A47 /* RepoTableViewCell.xib */; };
+		7CA294971CE185FC00E47A47 /* GitHubApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA294961CE185FC00E47A47 /* GitHubApiManager.m */; };
+		7CA2949C1CE1C4C200E47A47 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA294991CE1C4C200E47A47 /* Owner.m */; };
+		7CA2949D1CE1C4C200E47A47 /* RepoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2949B1CE1C4C200E47A47 /* RepoModel.m */; };
+		7CA294A01CE1FEB400E47A47 /* UINavigationController+StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2949F1CE1FEB400E47A47 /* UINavigationController+StatusBar.m */; };
+		7CC187891CE45A9A00CF4385 /* RepoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC187871CE45A9A00CF4385 /* RepoDetailViewController.m */; };
+		7CC1878A1CE45A9A00CF4385 /* RepoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC187881CE45A9A00CF4385 /* RepoDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +93,23 @@
 		7C9EB13B1CDC843000638C8B /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		7CA294841CE0678900E47A47 /* EtagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtagManager.h; sourceTree = "<group>"; };
 		7CA294851CE0678900E47A47 /* EtagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtagManager.m; sourceTree = "<group>"; };
+		7CA294871CE0837D00E47A47 /* RepositoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoriesViewController.h; sourceTree = "<group>"; };
+		7CA294881CE0837D00E47A47 /* RepositoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoriesViewController.m; sourceTree = "<group>"; };
+		7CA294891CE0837D00E47A47 /* RepositoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoriesViewController.xib; sourceTree = "<group>"; };
+		7CA2948E1CE08A8F00E47A47 /* RepoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoTableViewCell.h; sourceTree = "<group>"; };
+		7CA2948F1CE08A8F00E47A47 /* RepoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoTableViewCell.m; sourceTree = "<group>"; };
+		7CA294901CE08A8F00E47A47 /* RepoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
+		7CA294951CE185FC00E47A47 /* GitHubApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubApiManager.h; sourceTree = "<group>"; };
+		7CA294961CE185FC00E47A47 /* GitHubApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubApiManager.m; sourceTree = "<group>"; };
+		7CA294981CE1C4C200E47A47 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
+		7CA294991CE1C4C200E47A47 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
+		7CA2949A1CE1C4C200E47A47 /* RepoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoModel.h; sourceTree = "<group>"; };
+		7CA2949B1CE1C4C200E47A47 /* RepoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoModel.m; sourceTree = "<group>"; };
+		7CA2949E1CE1FEB400E47A47 /* UINavigationController+StatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+StatusBar.h"; sourceTree = "<group>"; };
+		7CA2949F1CE1FEB400E47A47 /* UINavigationController+StatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StatusBar.m"; sourceTree = "<group>"; };
+		7CC187861CE45A9A00CF4385 /* RepoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoDetailViewController.h; sourceTree = "<group>"; };
+		7CC187871CE45A9A00CF4385 /* RepoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoDetailViewController.m; sourceTree = "<group>"; };
+		7CC187881CE45A9A00CF4385 /* RepoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepoDetailViewController.xib; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +174,10 @@
 		40255ACA1CD5011400BC0F7C /* GitHubClient */ = {
 			isa = PBXGroup;
 			children = (
+				7CA294941CE184E000E47A47 /* GitHubApi */,
+				7CA294931CE1848800E47A47 /* GitHubOAuthHelper */,
+				7CA2948D1CE089B200E47A47 /* View */,
+				7CA2948C1CE089AC00E47A47 /* Model */,
 				7CA294831CE0677100E47A47 /* Etag */,
 				7C9883F61CDCCA9900E050B6 /* KeyedArchiver */,
 				7C9883F51CDCC9A200E050B6 /* Controller */,
@@ -159,8 +190,6 @@
 				40255AD91CD5011400BC0F7C /* LaunchScreen.storyboard */,
 				40255ADC1CD5011400BC0F7C /* Info.plist */,
 				40255ACB1CD5011400BC0F7C /* Supporting Files */,
-				7C9B5F551CD9129800916B7B /* GitHubOAuthHelper.h */,
-				7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */,
 			);
 			path = GitHubClient;
 			sourceTree = "<group>";
@@ -214,6 +243,8 @@
 		7C4EC4841CDB440900F4EB14 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				7CA2949E1CE1FEB400E47A47 /* UINavigationController+StatusBar.h */,
+				7CA2949F1CE1FEB400E47A47 /* UINavigationController+StatusBar.m */,
 				7C4EC4851CDB445900F4EB14 /* NSUserDefaults+Token.h */,
 				7C4EC4861CDB445900F4EB14 /* NSUserDefaults+Token.m */,
 				7C4EC4881CDB446A00F4EB14 /* NSUserDefaults+Etag.h */,
@@ -232,6 +263,12 @@
 				7C0D51731CD8AC130097141F /* UserViewController.h */,
 				7C0D51741CD8AC130097141F /* UserViewController.m */,
 				7C0D51751CD8AC130097141F /* UserViewController.xib */,
+				7CA294871CE0837D00E47A47 /* RepositoriesViewController.h */,
+				7CA294881CE0837D00E47A47 /* RepositoriesViewController.m */,
+				7CA294891CE0837D00E47A47 /* RepositoriesViewController.xib */,
+				7CC187861CE45A9A00CF4385 /* RepoDetailViewController.h */,
+				7CC187871CE45A9A00CF4385 /* RepoDetailViewController.m */,
+				7CC187881CE45A9A00CF4385 /* RepoDetailViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -252,6 +289,45 @@
 				7CA294851CE0678900E47A47 /* EtagManager.m */,
 			);
 			name = Etag;
+			sourceTree = "<group>";
+		};
+		7CA2948C1CE089AC00E47A47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CA294981CE1C4C200E47A47 /* Owner.h */,
+				7CA294991CE1C4C200E47A47 /* Owner.m */,
+				7CA2949A1CE1C4C200E47A47 /* RepoModel.h */,
+				7CA2949B1CE1C4C200E47A47 /* RepoModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7CA2948D1CE089B200E47A47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2948E1CE08A8F00E47A47 /* RepoTableViewCell.h */,
+				7CA2948F1CE08A8F00E47A47 /* RepoTableViewCell.m */,
+				7CA294901CE08A8F00E47A47 /* RepoTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7CA294931CE1848800E47A47 /* GitHubOAuthHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7C9B5F551CD9129800916B7B /* GitHubOAuthHelper.h */,
+				7C9B5F561CD9129800916B7B /* GitHubOAuthHelper.m */,
+			);
+			name = GitHubOAuthHelper;
+			sourceTree = "<group>";
+		};
+		7CA294941CE184E000E47A47 /* GitHubApi */ = {
+			isa = PBXGroup;
+			children = (
+				7CA294951CE185FC00E47A47 /* GitHubApiManager.h */,
+				7CA294961CE185FC00E47A47 /* GitHubApiManager.m */,
+			);
+			name = GitHubApi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,8 +438,11 @@
 			files = (
 				40255ADB1CD5011400BC0F7C /* LaunchScreen.storyboard in Resources */,
 				7C0D51771CD8AC130097141F /* UserViewController.xib in Resources */,
+				7CA2948B1CE0837D00E47A47 /* RepositoriesViewController.xib in Resources */,
+				7CC1878A1CE45A9A00CF4385 /* RepoDetailViewController.xib in Resources */,
 				40255AD81CD5011400BC0F7C /* Assets.xcassets in Resources */,
 				40255AD61CD5011400BC0F7C /* Main.storyboard in Resources */,
+				7CA294921CE08A8F00E47A47 /* RepoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +517,7 @@
 			files = (
 				7C9B5F511CD8EE8E00916B7B /* QCNetworkManager.m in Sources */,
 				7C4EC48A1CDB446A00F4EB14 /* NSUserDefaults+Etag.m in Sources */,
+				7CA2949D1CE1C4C200E47A47 /* RepoModel.m in Sources */,
 				7C9EB13C1CDC843000638C8B /* NSString+MD5.m in Sources */,
 				7C9B5F541CD8FA2600916B7B /* QCRequest.m in Sources */,
 				7CA294861CE0678900E47A47 /* EtagManager.m in Sources */,
@@ -447,6 +527,12 @@
 				7C4EC4871CDB445900F4EB14 /* NSUserDefaults+Token.m in Sources */,
 				40255AD01CD5011400BC0F7C /* AppDelegate.m in Sources */,
 				7C9883F91CDCCAB800E050B6 /* KeyedArchiverManager.m in Sources */,
+				7CA294911CE08A8F00E47A47 /* RepoTableViewCell.m in Sources */,
+				7CA294971CE185FC00E47A47 /* GitHubApiManager.m in Sources */,
+				7CC187891CE45A9A00CF4385 /* RepoDetailViewController.m in Sources */,
+				7CA2949C1CE1C4C200E47A47 /* Owner.m in Sources */,
+				7CA294A01CE1FEB400E47A47 /* UINavigationController+StatusBar.m in Sources */,
+				7CA2948A1CE0837D00E47A47 /* RepositoriesViewController.m in Sources */,
 				40255ACD1CD5011400BC0F7C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

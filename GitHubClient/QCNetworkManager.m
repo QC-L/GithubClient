@@ -109,8 +109,11 @@
         
         if (response.statusCode == 304) {
             id result = [KeyedArchiverManager  keyedUnarchiverPahtWith:request.urlString];
-
-            [self.delegate requestedSuccess:result];
+            if (result) {
+                [self.delegate requestedSuccess:result];
+            } else {
+                [self.delegate requestedError:[NSError errorWithDomain:@"error" code:400 userInfo:nil]];
+            }
             return;
         }
         

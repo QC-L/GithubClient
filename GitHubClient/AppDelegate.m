@@ -7,9 +7,13 @@
 //
 
 #import "AppDelegate.h"
+
 #import "QCNetworking.h"
-#import "UserViewController.h"
 #import "GitHubOAuthHelper.h"
+
+#import "UserViewController.h"
+#import "RepositoriesViewController.h"
+#import "UINavigationController+StatusBar.h"
 
 
 
@@ -23,6 +27,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    RepositoriesViewController *vc = [[RepositoriesViewController alloc] initWithNibName:@"RepositoriesViewController" bundle:nil];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.translucent = NO;
+    
+    self.window.rootViewController = nav;
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    
     return YES;
 }
 
